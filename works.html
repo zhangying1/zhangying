@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>http://yezhibian.com</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/works.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/addEvent.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+       addEvent(window,'load',function(){
+           !(function(){
+               var oBtn=document.getElementById('btn1');
+               var oLi=document.getElementById('li1');
+               var aLi=oLi.getElementsByTagName('li');
+               var aA = oLi.getElementsByTagName('a');
+               // 布局转化
+               var aPos=[];
+               for(var i=0; i<aLi.length; i++){
+                   aPos[i]={
+                       left: aLi[i].offsetLeft,
+                       top: aLi[i].offsetTop
+                   };
+               }
+               for(var i=0; i<aLi.length; i++){
+                   aLi[i].style.position='absolute';
+                   aLi[i].style.left=aPos[i].left+'px';
+                   aLi[i].style.top=aPos[i].top+'px';
+                   aLi[i].style.margin=0;
+               }
+
+               var timer;
+               var bFlag=false;
+               oBtn.onclick=function(){
+                   if(bFlag)return;
+                   bFlag=true;
+                   var iNow=0;
+                   timer=setInterval(function(){
+                       (function(index){
+                           move(aLi[iNow], {left: -250, top:100, width: 0, height: 0, opacity: 0},{complete: function(){
+                               if(index==aLi.length-1){
+                                   iNow=index;
+                                   timer=setInterval(function(){
+                                       move(aLi[iNow], {left: aPos[iNow].left, top: aPos[iNow].top, width: 335, height: 249, opacity: 1});
+                                       iNow--;
+                                       // 关闭定时器
+                                       if(iNow==-1){
+                                           clearInterval(timer);
+                                           setTimeout(function(){
+                                               bFlag=false;
+                                           }, 500);
+                                       }
+                                   }, 100);
+                               }
+                           }});
+                       })(iNow);
+                       iNow++;
+                       // 关闭定时器
+                       if(iNow==aLi.length){
+                           clearInterval(timer);
+                       }
+                   }, 100);
+
+               };
+           })();
+           !(function() {
+               var oUl = document.querySelector('.mi .ul1');
+               var N = 11;
+
+               for (var i = 0; i < N; i++) {
+                   var oLi = document.createElement('li');
+                   oLi.style.backgroundImage = 'url(img_h5/' + (i + 1) + '.jpg)';
+                   oUl.appendChild(oLi);
+                   oLi.style.transition = '1s all ease ' + 200 * (N - i) + 'ms';
+                   !(function (oLi, i) {
+                       setTimeout(function () {
+                           oLi.style.transform = 'perspective(1200px) rotateY(' + 360 / 11 * i + 'deg) translateZ(360px)';
+                       }, 0);
+                   })(oLi, i);
+               }
+               var aLi = oUl.children;
+               var y = 0;
+               var x = -15;
+               var iSpeedX = 0;
+               var iSpeedY = 0;
+               var lastX = 0;
+               var lastY = 0;
+               var timer;
+               var bFlag = false;
+               aLi[0].addEventListener('transitionend', function () {
+                   turn(-x, y);
+                   bFlag = true;
+               }, false);
+               document.onmousedown = function (ev) {
+                   if (bFlag == false)return;
+                   clearInterval(timer);
+                   var oEvent = ev || event;
+                   var disX = oEvent.clientX - y;
+                   var disY = oEvent.clientY - x;
+                   for (var i = 0; i < aLi.length; i++) {
+                       aLi[i].style.transition = 'none';
+                   }
+                   document.onmousemove = function (ev) {
+                       var oEvent = ev || event;
+
+                       x = oEvent.clientY - disY;
+                       y = oEvent.clientX - disX;
+                       turn(x / 3, y / 3);
+                       iSpeedX = oEvent.clientX - lastX;
+                       iSpeedY = oEvent.clientY - lastY;
+
+                       lastX = oEvent.clientX;
+                       lastY = oEvent.clientY;
+                   };
+                   document.onmouseup = function () {
+                       document.onmousemove = null;
+                       document.onmouseup = null;
+                       timer = setInterval(function () {
+                           x += iSpeedY;
+                           y += iSpeedX;
+                           iSpeedX *= 0.95;
+                           iSpeedY *= 0.95;
+                           turn(x / 3, y / 3);
+                       }, 30);
+                   };
+                   return false;
+               };
+               function turn(x, y) {
+                   for (var i = 0; i < aLi.length; i++) {
+                       aLi[i].style.transform = 'perspective(1200px) rotateY(' + (360 / 11 * i + y) + 'deg) translateZ(360px)';
+                       oUl.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(' + -x + 'deg)';
+
+                       // 角度
+                       var scale = Math.abs(Math.abs((360 / 11 * i + y) % 360) - 180) / 180;
+                       scale < 0.3 && (scale = 0.3);
+                       aLi[i].style.opacity = scale;
+                   }
+               }
+           })();
+       },false);
+       $(function(){
+           !(function(){
+               var left = $('.navi .inform .left_arrow');
+               var right = $('.navi .inform .right_arrow');
+
+               $('.navi .inform').mouseleave(function() {
+                   left.stop().animate({"left": "2"},{easing: 'easeOutBack'});
+                   right.stop().animate({"left": "117"},{easing: 'easeOutBack'});
+               });
+           })();
+       });
+    </script>
+</head>
+<body>
+<!--导航-->
+<div class="navi" id="navi">
+    <div class="opa"></div>
+    <ul>
+        <li class="logo"></li>
+        <!--图片时钟-->
+        <li class="time time_1"><img src="img/0.png"/></li>
+        <li class="time time_2"><img src="img/0.png"/></li>
+        <li class="time time_3"><img src="img/sign.png"/></li>
+        <li class="time time_4"><img src="img/0.png"/></li>
+        <li class="time time_5"><img src="img/0.png"/></li>
+        <li class="time time_6"><img src="img/sign.png"/></li>
+        <li class="time time_7"><img src="img/0.png"/></li>
+        <li class="time time_8"><img src="img/0.png"/></li>
+        <li class="time time_9"><img src="img/week.png"/></li>
+        <li class="time time_10"><img src="img/one.png"/></li>
+
+    </ul>
+    <ul class="inform clearfix">
+        <li class="fr last"><a href="about.html">关于我</a></li>
+        <li class="fr"><a href="skills.html">技能</a></li>
+        <li class="fr"><a href="works.html" name="test1">作品</a></li>
+        <li class="fr"><a href="index.html">首页</a></li>
+
+        <li class="left_arrow"><img src="img/left.png" /></li>
+        <li class="right_arrow"><img src="img/right.png"/></li>
+    </ul>
+</div>
+<div class="top">
+    <ul class="css_1 clearfix" >
+        <li class="title fl">
+            <h2 id="btn1"></h2>
+        </li>
+        <li class="title_2 fl" id="li1">
+            <ul class="clearfix">
+                <li class="fl">
+                    <img src="img/thesoul.jpg" />
+                    <a target="_blank" href="thesoul.html">灵魂回响</a>
+                    <span></span>
+                </li>
+                <li class="fl">
+                    <img src="img/jd.jpg" />
+                    <a target="_blank" href="jd.html">京东</a>
+                    <span></span>
+                </li>
+            </ul>
+            <ul class="clearfix">
+                <li class="fl">
+                    <img src="img/mls.jpg" />
+                    <a target="_blank" href="mls.html">美丽说</a>
+                    <span></span>
+                </li>
+                <li class="fl">
+                    <img src="img/bdl.jpg" />
+                    <a target="_blank" href="bdl.html">百得利</a>
+                    <span></span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <ul><li class="cont"><img src="img/css_1.png" /></li></ul>
+    <ul class="js_1 clearfix">
+        <li class="back fr">
+            <h2 id="btn2"></h2>
+        </li>
+        <li class="content fl">
+            <div class="active"><img src="img/move_0.jpg"><a target="_blank" href="block.html#block"></a></div>
+            <div><img src="img/move_1.jpg"><a target="_blank" href="text.html#text"></a></div>
+            <div><img src="img/move_2.jpg"><a target="_blank" href="shuffling.html#shuffling"></a></div>
+            <div><img src="img/move_3.jpg"><a target="_blank" href="shuffling2.html#shuffling2"></a></div>
+            <div><img src="img/move_4.jpg"><a target="_blank" href="jean.html#jean"></a></div>
+            <div><img src="img/move_5.jpg"><a target="_blank" href="magnify.html#magnify"></a></div>
+            <div><img src="img/move_6.jpg"><a target="_blank" href="picture.html#picture"></a></div>
+            <div><img src="img/move_7.jpg"><a target="_blank" href="move.html#move"></a></div>
+        </li>
+        <li class="btn fl">
+            <div class="active">分步运动</div>
+            <div>渐变文字</div>
+            <div>轮播图</div>
+            <div>无间隙轮播图</div>
+            <div>手风琴</div>
+            <div>靠近放大</div>
+            <div>图片墙</div>
+            <div>移入移出</div>
+        </li>
+    </ul>
+</div>
+<div class="mi"><ul class="ul1">H5</ul></div>
+<div class="bottom">
+    <img src="img/last.png" class="last">
+</div>
+</body>
+</html>

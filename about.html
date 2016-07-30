@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>http://yezhibian.com</title>
     <link href="css/base.css" rel="stylesheet" />
-    <link href="css/index.css" rel="stylesheet"/>
+    <link href="css/about.css" rel="stylesheet"/>
     <script src="js/jquery.js"></script>
     <script src="js/jquery.easing.js"></script>
     <script src="js/addEvent.js"></script>
@@ -15,15 +15,16 @@
                 var left = $('.navi .inform .left_arrow');
                 var right = $('.navi .inform .right_arrow');
 
-                $('.navi .inform').mouseout(function() {
-                        left.stop().animate({"left": "-102"},{easing: 'easeOutBack'});
-                        right.stop().animate({"left": "17"},{easing: 'easeOutBack'});
+                $('.navi .inform').mouseleave(function() {
+                    left.stop().animate({"left": "201"},{easing: 'easeOutBack'});
+                    right.stop().animate({"left": "334"},{easing: 'easeOutBack'});
                 });
             })();
         });
     </script>
 </head>
 <body>
+<!--导航-->
 <div class="navi" id="navi">
     <div class="opa"></div>
     <ul>
@@ -42,25 +43,36 @@
 
     </ul>
     <ul class="inform clearfix">
-        <li class="fr last"><a href="about.html" target="_blank">关于我</a></li>
-        <li class="fr"><a href="skills.html" target="_blank">技能</a></li>
-        <li class="fr"><a href="works.html" target="_blank">作品</a></li>
-        <li class="fr"><a href="index.html" name="test0">首页</a></li>
+        <li class="fr last"><a href="about.html" name="test3">关于我</a></li>
+        <li class="fr"><a href="skills.html">技能</a></li>
+        <li class="fr"><a href="works.html">作品</a></li>
+        <li class="fr"><a href="index.html">首页</a></li>
 
         <li class="left_arrow"><img src="img/left.png" /></li>
         <li class="right_arrow"><img src="img/right.png"/></li>
     </ul>
 </div>
-<div class="middle">
-    <ul>
-        <li class="con"></li>
-        <li class=content>
-            <h1>张淦</h1>
-            <p>web前端工程师</p>
+<div class="content">
+    <ul class="clearfix">
+        <li class="opa fl"></li>
+        <li class="introduction fl">
+            <span>姓名</span>
+            <span>年龄</span>
+            <span>地址</span>
+            <span>联系方式
+                <p>手机号码</p>
+                <p>E-MAIL</p>
+            </span>
         </li>
-        <li class="opa_1"><a href="works.html" target="_blank">作品</a></li>
-        <li class="opa_2"><a href="skills.html" target="_blank">技能</a></li>
-        <li class="opa_3"><a href="about.html" target="_blank">关于我</a></li>
+        <li class="detailed fl">
+            <span>张淦/zhanggan</span>
+            <span>1998</span>
+            <span>北京市昌平区东小口</span>
+            <span class="special">
+                <p>17181060720</p>
+                <p>2473689006@QQ.com</p>
+            </span>
+        </li>
     </ul>
 </div>
 <div class="bottom">

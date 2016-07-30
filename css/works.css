@@ -1,0 +1,171 @@
+
+body{
+    background:#000;
+}
+/*导航*/
+.navi{
+    width:100%; height:90px; border-bottom:2px solid #888888; position:relative;
+}
+.navi .opa{
+    width:100%; height:90px; background: #000; position:absolute; top:0; left:0; opacity:0.97; filter:alpha(opacity=97);
+}
+.navi .logo{
+    width:113px; height:90px; background:url("../img/0000.png");  position:absolute; left:70px; top:-3px;
+}
+/*图片时钟*/
+.navi ul .time{
+    width:25px; height:37px; position:absolute; top:30px; z-index:999;
+}
+.navi ul .time_1{
+    left:200px;
+}
+.navi ul .time_2{
+    left:230px;
+}
+.navi ul .time_3{
+    left:260px;
+}
+.navi ul .time_4{
+    left:290px;
+}
+.navi ul .time_5{
+    left:320px;
+}
+.navi ul .time_6{
+    left:350px;
+}
+.navi ul .time_7{
+    left:380px;
+}
+.navi ul .time_8{
+    left:410px;
+}
+.navi ul .time_9{
+    left:450px;
+}
+.navi ul .time_10{
+    left:530px;
+}
+.navi .inform{
+    width:440px; height:90px; position:absolute; right:0; top:0;
+}
+.navi .inform li{
+    width:72px; font-weight:bold; margin:17px 5px; padding:10px;  text-align:center;
+}
+.navi .inform li a{
+    color:#fff; font-size:30px; position:relative; z-index:9999;
+}
+.navi .inform .last{
+    width:92px; padding:10px 0; margin-right:30px; margin-left:10px;
+}
+.navi .inform .left_arrow{
+    height:90px; position:absolute; left:2px; top:-4px; margin:0;
+}
+.navi .inform .right_arrow{
+    height:90px; position:absolute; left:117px; top:-4px; margin:0;
+}
+.navi .inform img{
+    height:90px;
+}
+
+.top{
+    width:100%; background:url("../img/works_1.png") no-repeat #000103;
+}
+.top .css_1{
+    width:100%; height:582px; position:relative;
+}
+.top .css_1 .title{
+    width:44%; height:100%; position:relative;
+}
+.top .css_1 .title h2{
+    width:110px; height:60px; cursor: pointer; position:absolute; right:150px; bottom:190px;
+}
+.top .css_1 .title_2{
+    width:56%; height:100%;
+}
+.top .css_1 .title_2 ul{
+    width:100%; height:50%; position:relative;
+}
+.top .css_1 .title_2 ul li{
+    width:335px; height:249px; margin:10px; padding:9px; border:1px solid #fff; position:relative;
+}
+.top .css_1 .title_2 ul li img{
+    width:335px;
+}
+.top .css_1 .title_2 ul li a{
+    width:100%; height:100%; position:absolute; left:0; top:0;  z-index:999; display:none; font-size:40px;color:#fff; text-align:center; line-height:270px;
+}
+.top .css_1 .title_2 ul li span{
+    width:100%; height:100%; position:absolute; left:0; top:0; background:#000; opacity:0.5; filter:alpha(opacity=50); display:none;
+}
+.top ul .cont{
+    width:100%; height:112px;
+}
+.top ul .cont img{
+    width:100%;
+}
+.top .js_1{
+    width:100%; height:540px;
+}
+.top .js_1 .back{
+    width:40%; height:100%; background:url("../img/js_1.png"); position:relative;
+}
+.top .js_1 .back h2{
+    width:100px; height:100px; position:absolute; right:200px; bottom:300px;
+}
+.top .js_1 .content{
+     width:44.5%;height:400px; margin-top:60px; border:4px solid #fff;  overflow:hidden;
+ }
+.top .js_1 .content div{
+    display:none; position:relative;
+}
+.top .js_1 .content div a{
+    width:100%; height:100%; position:absolute; left:0; top:0;
+}
+.top .js_1 .btn{
+    width:120px;  margin-top:60px; border:4px solid #fff; border-left:1px;
+}
+.top .js_1 .btn div{
+    width:120px; height:50px; color:#fff; font-size:20px; font-weight:bold; background:#000; text-align:center; line-height:50px; cursor: pointer;
+}
+.top .js_1 .btn div.active{
+    background:#0ff;
+}
+.top .js_1 .content div.active{
+    display:block;
+}
+.mi{
+    height:700px; position:relative;
+}
+.mi .ul1{
+    width:133px;
+    height:200px;
+    position:absolute;
+    left:50%;
+    top:24%;
+    margin-left:-67px;
+    transform:perspective(1200px) rotateY(0deg) rotateX(-15deg);
+    transform-style:preserve-3d;
+    font-size:60px;
+    color:#fff;
+    text-align:center;
+    line-height:200px;
+}
+.mi .ul1 li{
+    width:100%;
+    height:100%;
+    position:absolute;
+    left:0;
+    top:0;
+    border-radius:4px;
+    -webkit-box-shadow:0 0 20px #fff;
+    -webkit-box-reflect:below 10px -webkit-linear-gradient(rgba(0,0,0,0) 20%, rgba(0,0,0,.2));
+    transform: perspective(1200px) rotateY(0deg) translateZ(0px);
+}
+
+.bottom{
+    width:100%; height:100px; position:relative; text-align:center;
+}
+.bottom .last{
+    width:100px; position:fixed; right:10px; bottom:10px; display:none; cursor: pointer;
+}
