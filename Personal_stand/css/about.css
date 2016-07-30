@@ -1,0 +1,106 @@
+
+body{
+    background:#000;
+}
+/*导航*/
+.navi{
+    width:100%; height:90px; border-bottom:2px solid #888888; position:relative;
+}
+.navi .opa{
+    width:100%; height:90px; background: #000; position:absolute; top:0; left:0; opacity:0.97; filter:alpha(opacity=97);
+}
+.navi .logo{
+    width:113px; height:95px; background:url("../img/0000.png");  position:absolute; left:70px; top:-3px;
+}
+/*图片时钟*/
+.navi ul .time{
+    width:25px; height:37px; position:absolute; top:30px; z-index:999;
+}
+.navi ul .time_1{
+    left:200px;
+}
+.navi ul .time_2{
+    left:230px;
+}
+.navi ul .time_3{
+    left:260px;
+}
+.navi ul .time_4{
+    left:290px;
+}
+.navi ul .time_5{
+    left:320px;
+}
+.navi ul .time_6{
+    left:350px;
+}
+.navi ul .time_7{
+    left:380px;
+}
+.navi ul .time_8{
+    left:410px;
+}
+.navi ul .time_9{
+    left:450px;
+}
+.navi ul .time_10{
+    left:530px;
+}
+.navi .inform{
+    width:440px; height:90px; position:absolute; right:0; top:0;
+}
+.navi .inform li{
+    width:72px; font-weight:bold; margin:17px 5px; padding:10px;  text-align:center;
+}
+.navi .inform li a{
+    color:#fff; font-size:30px; position:relative; z-index:9999; display:block;
+}
+.navi .inform .last{
+    width:92px; padding:10px 0; margin-right:30px; margin-left:10px;
+}
+.navi .inform .left_arrow{
+    height:90px; position:absolute; left:201px; top:-4px; margin:0;
+}
+.navi .inform .right_arrow{
+    height:90px; position:absolute; left:334px; top:-4px; margin:0;
+}
+.navi .inform img{
+    height:90px;
+}
+
+.content{
+    width:100%; height:1180px; background:url("../img/about.jpg") no-repeat; background-size:100%;  position:relative;
+}
+.content ul{
+    width:840px; height:490px; position:absolute; left:50%; bottom:50px; padding:60px; margin-left:-480px;
+}
+.content ul .opa{
+    width:100%; height:100%; opacity:0.5; filter:alpha(opacity=50); background:#fff;  position:absolute; left:0; top:0
+}
+.content .introduction{
+    width:200px; height:100%;  margin-left:50px;
+}
+.content .detailed{
+    width:400px; height:100%;  margin-left:100px; margin-right:50px;
+}
+.content ul .introduction span{
+    font-size:24px; line-height:44px; position:relative; display:block;
+}
+.content ul .detailed span{
+    font-size:24px; line-height:44px; position:relative; display:block;
+}
+.content ul .introduction span p{
+    font-size:24px; margin-left:50px;
+}
+.content ul .detailed span p{
+    font-size:24px;
+}
+.content ul .detailed .special{
+     margin-top:42px;
+}
+.bottom{
+    width:100%; height:1px; position:relative; text-align:center;
+}
+.bottom .last{
+    width:100px; position:fixed; right:10px; bottom:10px; display:none; cursor: pointer;
+}

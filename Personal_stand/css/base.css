@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{margin:0; padding:0; font-size:12px; font-family: '微软雅黑';}
+    h1,h2,h3,h4,h5,h6{font-weight:normal;}
+    a{text-decoration:none; color:#000; font-family: '微软雅黑';}
+    a img{border:0;}
+    ul,ol,dl,dt,dd{margin:0; padding:0;}
+    li{list-style:none; vertical-align:top;}
+    i,em{font-style:normal;}
+    b,strong{font-weight:normal;}
+    img{vertical-align:top;}
+    a img{border:0;}
+
+	.fl{float:left;}
+	.fr{float:right;}
+	.clearfix:after{display:block;content:'';clear:both;}
+    .clearfix{zoom:1}
+	input,textarea{outline:none;}
+
+	th,td{ padding:0;}
+	table{ border-collapse:collapse;}

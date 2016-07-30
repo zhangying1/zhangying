@@ -1,0 +1,113 @@
+
+body{
+    background:#000;
+}
+/*导航*/
+.navi{
+    width:100%; height:90px; border-bottom:2px solid #888888; position:relative;
+}
+.navi .opa{
+    width:100%; height:90px; background: #000; position:absolute; top:0; left:0; opacity:0.97; filter:alpha(opacity=97);
+}
+.navi .logo{
+    width:113px; height:95px; background:url("../img/0000.png");  position:absolute; left:70px; top:-3px;
+}
+/*图片时钟*/
+.navi ul .time{
+    width:25px; height:37px; position:absolute; top:30px; z-index:999;
+}
+.navi ul .time_1{
+    left:200px;
+}
+.navi ul .time_2{
+    left:230px;
+}
+.navi ul .time_3{
+    left:260px;
+}
+.navi ul .time_4{
+    left:290px;
+}
+.navi ul .time_5{
+    left:320px;
+}
+.navi ul .time_6{
+    left:350px;
+}
+.navi ul .time_7{
+    left:380px;
+}
+.navi ul .time_8{
+    left:410px;
+}
+.navi ul .time_9{
+    left:450px;
+}
+.navi ul .time_10{
+    left:530px;
+}
+.navi .inform{
+    width:440px; height:90px; position:absolute; right:0; top:0;
+}
+.navi .inform li{
+    width:72px; font-weight:bold; margin:17px 5px; padding:10px;  text-align:center;
+}
+.navi .inform li a{
+    color:#fff; font-size:30px; position:relative; z-index:9999;
+}
+.navi .inform .last{
+    width:92px; padding:10px 0; margin-right:30px; margin-left:10px;
+}
+.navi .inform .left_arrow{
+    height:90px; position:absolute; left:105px; top:-4px; margin:0;
+}
+.navi .inform .right_arrow{
+    height:90px; position:absolute; left:216px; top:-4px; margin:0;
+}
+.navi .inform img{
+     height:90px;
+}
+
+.content{
+    width:100%; height:760px; background:url("../img/skills.jpg"); background-size:100%;
+}
+.content .title{
+    width:100%; height:100px;  padding-top:70px; padding-bottom:70px; position:relative;
+}
+.content .title h2{
+    font-size:60px; font-weight:bold; color:#cadfd8; position:absolute; left:50%; top:72px;  margin-left:-140px; z-index:999;
+}
+.content .title .left_arrow{
+    height:90px; position:absolute; left:0; top:49px; margin:0; opacity:0; filter:alpha(opacity=0);
+}
+.content .title .right_arrow{
+    height:90px; position:absolute; left:1100px; top:49px; margin:0; opacity:0; filter:alpha(opacity=0);
+}
+.content .title li img{
+    height:130px;
+}
+.content .middle{
+    width:100%; height:300px; position:relative;
+}
+.content .middle .text{
+    width:560px; height:310px; position:absolute; left:50%; top:-64px; padding:20px; margin-left:-320px; border-radius:10px; line-height:28px;
+}
+.content .middle .opa{
+    width:100%; height:100%; background: rgb(72, 77, 78); opacity:0.3; filter:alpha(opacity=30); position:absolute; left:0; top:0; border-radius:10px;
+}
+.content .middle p{
+    font-size:24px; color:#fff; position:relative; margin-bottom:10px;
+}
+.content .end{
+    width:100%; height:220px; position:relative;
+}
+.content .end span{
+    font-size:29px;color:#fff; font-weight:bold; position:absolute; right:100px; top:7px;
+}
+
+.bottom{
+    width:100%; height:1px; position:relative; text-align:center;
+}
+.bottom .last{
+    width:100px; position:fixed; right:10px; bottom:10px; display:none; cursor: pointer;
+}

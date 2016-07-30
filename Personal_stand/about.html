@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>http://yezhibian.com</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/about.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/addEvent.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        $(function(){
+            !(function(){
+                var left = $('.navi .inform .left_arrow');
+                var right = $('.navi .inform .right_arrow');
+
+                $('.navi .inform').mouseleave(function() {
+                    left.stop().animate({"left": "201"},{easing: 'easeOutBack'});
+                    right.stop().animate({"left": "334"},{easing: 'easeOutBack'});
+                });
+            })();
+        });
+    </script>
+</head>
+<body>
+<!--导航-->
+<div class="navi" id="navi">
+    <div class="opa"></div>
+    <ul>
+        <li class="logo"></li>
+        <!--图片时钟-->
+        <li class="time time_1"><img src="img/0.png"/></li>
+        <li class="time time_2"><img src="img/0.png"/></li>
+        <li class="time time_3"><img src="img/sign.png"/></li>
+        <li class="time time_4"><img src="img/0.png"/></li>
+        <li class="time time_5"><img src="img/0.png"/></li>
+        <li class="time time_6"><img src="img/sign.png"/></li>
+        <li class="time time_7"><img src="img/0.png"/></li>
+        <li class="time time_8"><img src="img/0.png"/></li>
+        <li class="time time_9"><img src="img/week.png"/></li>
+        <li class="time time_10"><img src="img/one.png"/></li>
+
+    </ul>
+    <ul class="inform clearfix">
+        <li class="fr last"><a href="about.html" name="test3">关于我</a></li>
+        <li class="fr"><a href="skills.html">技能</a></li>
+        <li class="fr"><a href="works.html">作品</a></li>
+        <li class="fr"><a href="index.html">首页</a></li>
+
+        <li class="left_arrow"><img src="img/left.png" /></li>
+        <li class="right_arrow"><img src="img/right.png"/></li>
+    </ul>
+</div>
+<div class="content">
+    <ul class="clearfix">
+        <li class="opa fl"></li>
+        <li class="introduction fl">
+            <span>姓名</span>
+            <span>年龄</span>
+            <span>地址</span>
+            <span>联系方式
+                <p>手机号码</p>
+                <p>E-MAIL</p>
+            </span>
+        </li>
+        <li class="detailed fl">
+            <span>张淦/zhanggan</span>
+            <span>1998</span>
+            <span>北京市昌平区东小口</span>
+            <span class="special">
+                <p>17181060720</p>
+                <p>2473689006@QQ.com</p>
+            </span>
+        </li>
+    </ul>
+</div>
+<div class="bottom">
+    <img src="img/last.png" class="last">
+</div>
+</body>
+</html>

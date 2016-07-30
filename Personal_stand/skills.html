@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>http://yezhibian.com</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/skills.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/addEvent.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        $(function(){
+            !(function(){
+                var left = $('.navi .inform .left_arrow');
+                var right = $('.navi .inform .right_arrow');
+
+                $('.navi .inform').mouseleave(function() {
+                    left.stop().animate({"left": "105"},{easing: 'easeOutBack'});
+                    right.stop().animate({"left": "216"},{easing: 'easeOutBack'});
+                });
+            })();
+        });
+    </script>
+</head>
+<body>
+<!--导航-->
+<div class="navi" id="navi">
+    <div class="opa"></div>
+    <ul>
+        <li class="logo"></li>
+        <!--图片时钟-->
+        <li class="time time_1"><img src="img/0.png"/></li>
+        <li class="time time_2"><img src="img/0.png"/></li>
+        <li class="time time_3"><img src="img/sign.png"/></li>
+        <li class="time time_4"><img src="img/0.png"/></li>
+        <li class="time time_5"><img src="img/0.png"/></li>
+        <li class="time time_6"><img src="img/sign.png"/></li>
+        <li class="time time_7"><img src="img/0.png"/></li>
+        <li class="time time_8"><img src="img/0.png"/></li>
+        <li class="time time_9"><img src="img/week.png"/></li>
+        <li class="time time_10"><img src="img/one.png"/></li>
+
+    </ul>
+    <ul class="inform clearfix">
+        <li class="fr last"><a href="about.html">关于我</a></li>
+        <li class="fr"><a href="skills.html" name="test2">技能</a></li>
+        <li class="fr"><a href="works.html">作品</a></li>
+        <li class="fr"><a href="index.html">首页</a></li>
+
+        <li class="left_arrow"><img src="img/left.png" /></li>
+        <li class="right_arrow"><img src="img/right.png"/></li>
+    </ul>
+</div>
+<div class="content">
+    <ul class="title">
+        <li><h2>用心设计</h2></li>
+        <li class="right_arrow"><img src="img/right.png" /></li>
+        <li class="left_arrow"><img src="img/left.png" /></li>
+    </ul>
+    <ul class="middle">
+        <li class="text">
+        <div class="opa"></div>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;熟练掌握各种终端切图技巧，熟练书写网页页面构架，熟练掌握：html、css、javascript、框架等</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;熟练掌握JS语言基础、语法、函数使用、JavaScript面向对象的语言、浏览器事件处理、异步刷新技术、JQ使用、JQ插件制作、Ajax、Jsonp，具备互联网交互设计能力</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;熟练掌握html5、css3相关移动端开发知识，掌握图标字体制作以及移动端开发框架</p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;熟悉后端服务器运行环境和数据通讯协议，掌握响应式布局框架</p>
+        </li>
+    </ul>
+    <ul class="end">
+        <li><span>愿最真挚的情感能在洁简的代码中传递...</span></li>
+    </ul>
+</div>
+<div class="bottom">
+    <img src="img/last.png" class="last">
+</div>
+</body>
+</html>
