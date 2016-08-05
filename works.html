@@ -65,79 +65,28 @@
 
                };
            })();
-           !(function() {
-               var oUl = document.querySelector('.mi .ul1');
-               var N = 11;
+           !(function(){
+               var oInput = document.querySelectorAll('.mi div input')[0];
+               var oInput2 = document.querySelectorAll('.mi div input')[1];
+               var aLi = document.querySelectorAll('.mi ul li');
 
-               for (var i = 0; i < N; i++) {
-                   var oLi = document.createElement('li');
-                   oLi.style.backgroundImage = 'url(img_h5/' + (i + 1) + '.jpg)';
-                   oUl.appendChild(oLi);
-                   oLi.style.transition = '1s all ease ' + 200 * (N - i) + 'ms';
-                   !(function (oLi, i) {
-                       setTimeout(function () {
-                           oLi.style.transform = 'perspective(1200px) rotateY(' + 360 / 11 * i + 'deg) translateZ(360px)';
-                       }, 0);
-                   })(oLi, i);
+               var arr = [];
+               for(var i=0; i<aLi.length; i++){
+                   arr[i] = aLi[i].className;
                }
-               var aLi = oUl.children;
-               var y = 0;
-               var x = -15;
-               var iSpeedX = 0;
-               var iSpeedY = 0;
-               var lastX = 0;
-               var lastY = 0;
-               var timer;
-               var bFlag = false;
-               aLi[0].addEventListener('transitionend', function () {
-                   turn(-x, y);
-                   bFlag = true;
-               }, false);
-               document.onmousedown = function (ev) {
-                   if (bFlag == false)return;
-                   clearInterval(timer);
-                   var oEvent = ev || event;
-                   var disX = oEvent.clientX - y;
-                   var disY = oEvent.clientY - x;
-                   for (var i = 0; i < aLi.length; i++) {
-                       aLi[i].style.transition = 'none';
+
+               oInput.onclick=function(){
+                   arr.push(arr.shift());
+                   for(var i=0; i<aLi.length; i++){
+                       aLi[i].className = arr[i];
                    }
-                   document.onmousemove = function (ev) {
-                       var oEvent = ev || event;
-
-                       x = oEvent.clientY - disY;
-                       y = oEvent.clientX - disX;
-                       turn(x / 3, y / 3);
-                       iSpeedX = oEvent.clientX - lastX;
-                       iSpeedY = oEvent.clientY - lastY;
-
-                       lastX = oEvent.clientX;
-                       lastY = oEvent.clientY;
-                   };
-                   document.onmouseup = function () {
-                       document.onmousemove = null;
-                       document.onmouseup = null;
-                       timer = setInterval(function () {
-                           x += iSpeedY;
-                           y += iSpeedX;
-                           iSpeedX *= 0.95;
-                           iSpeedY *= 0.95;
-                           turn(x / 3, y / 3);
-                       }, 30);
-                   };
-                   return false;
                };
-               function turn(x, y) {
-                   for (var i = 0; i < aLi.length; i++) {
-                       aLi[i].style.transform = 'perspective(1200px) rotateY(' + (360 / 11 * i + y) + 'deg) translateZ(360px)';
-                       oUl.style.transform = 'perspective(1200px) rotateY(0deg) rotateX(' + -x + 'deg)';
-
-                       // 角度
-                       var scale = Math.abs(Math.abs((360 / 11 * i + y) % 360) - 180) / 180;
-                       scale < 0.3 && (scale = 0.3);
-                       aLi[i].style.opacity = scale;
+               oInput2.onclick=function(){
+                   arr.unshift(arr.pop());
+                   for(var i=0; i<aLi.length; i++){
+                       aLi[i].className = arr[i];
                    }
-               }
+               };
            })();
        },false);
        $(function(){
@@ -239,9 +188,25 @@
             <div>图片墙</div>
             <div>移入移出</div>
         </li>
+    </ul><hr/>
+</div>
+<div class="mi">
+    <div class="clearfix">
+        <input class="fl" type="button" value="上一页">
+        <span class="fl">H5</span>
+        <input class="fl" type="button" value="下一页">
+    </div>
+    <ul>
+        <li class="l2"><img src="img/0.jpg"/><a target="_blank" href="3D.html#3D"></a></li>
+        <li class="l1"><img src="img/1.jpg"/><a target="_blank" href="explosion.html#explosion"></a></li>
+       <li class="cur"><img src="img/2.jpg"/><a target="_blank" href="Turn.html#Turn"></a></li>
+        <li class="r1"><img src="img/3.jpg"/><a target="_blank" href="flip.html#flip"></a></li>
+        <li class="r2"><img src="img/4.jpg"/><a target="_blank" href="cubic.html#cubic"></a></li>
+        <li><img src="img/5.jpg"/><a target="_blank" href="clock.html#clock"></a></li>
+        <li><img src="img/6.jpg"/><a target="_blank" href="shadow.html#shadow"></a></li>
+        <li><img src="img/7.jpg"/><a target="_blank" href="filter.html#filter"></a></li>
     </ul>
 </div>
-<div class="mi"><ul class="ul1">H5</ul></div>
 <div class="bottom">
     <img src="img/last.png" class="last">
 </div>
