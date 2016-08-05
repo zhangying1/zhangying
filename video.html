@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The other shore to heaven</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            text-align:center;
+            padding:20px;
+        }
+        input{
+            width:60px;
+            height:30px;
+            margin:10px 0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oVideo=document.querySelector('video');
+            var oInput = document.querySelectorAll('input');
+            var oMeter = document.querySelector('meter');
+            var oMuted = document.querySelector('.muted');
+            var oMuted2 = document.querySelector('.muted2');
+
+            oInput[0].onclick=function(){
+                oVideo.play();
+            };
+            oInput[1].onclick=function(){
+                oVideo.pause();
+            };
+            oInput[2].onclick=function(){
+                oVideo.currentTime+=10;
+            };
+            oInput[3].onclick=function(){
+                oVideo.currentTime-=10;
+            };
+            oInput[4].onclick=function(){
+                if(oVideo.volume>=0.9){
+                    alert('已是最大音量');
+                    oVideo.volume=0.9;
+                }
+                oVideo.volume+=0.1;
+            };
+            oInput[5].onclick=function(){
+               if(oVideo.volume<=0.1){
+                   alert('已是最小音量');
+                   oVideo.volume=0.1;
+               };
+                oVideo.volume-=0.1;
+            };
+            var bFlag=true;
+            oInput[6].onclick=function(){
+                if(bFlag){
+                    oVideo.muted=true;
+                    this.value='取消静音';
+                }else{
+                    oVideo.muted=false;
+                    this.value='静音';
+                }
+                bFlag=!bFlag;
+            };
+            oInput[7].onclick=function(){
+                oVideo.webkitRequestFullScreen();
+            };
+            oVideo.ontimeupdate=function(){
+                oMeter.value = oVideo.currentTime/oVideo.duration;
+            };
+            oVideo.onended=function(){
+                alert('播放结束,该插广告了');
+            };
+        }
+    </script>
+</head>
+<body>
+<video src="1.mp4"></video><hr>
+<input type="button" value="播放">
+<input type="button" value="暂停">
+<input type="button" value="快进">
+<input type="button" value="快退">
+<input type="button" value="音量+">
+<input type="button" value="音量-">
+<input type="button" value="静音">
+<input type="button" value="全屏">
+<div class="box">
+    <meter style="width:600px;" value="0" min="0" max="1"></meter>
+</div>
+</body>
+</html>

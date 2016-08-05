@@ -20,13 +20,6 @@
             background:url("img_js/0.jpg");
             position:relative;
         }
-        #btn{
-            width:100px;
-            height:40px;
-            position:absolute;
-            right:0;
-            bottom:0;
-        }
         a{
             position:absolute;
             left:0;
@@ -36,7 +29,6 @@
 <script src="js/addEvent.js"></script>
     <script>
         addEvent(window,'load',function(){
-            var oBtn = document.getElementById('btn');
             var oBox = document.getElementById('box');
             var timer;
             //创建span
@@ -65,7 +57,7 @@
             var aSpan = oBox.children;
             var n = 0;
             var bFlag=false;
-            oBtn.onclick = function(){
+            oBox.onclick = function(){
                 if(bFlag)return;
                 bFlag=true;
                 var iNow = 0;
@@ -88,10 +80,8 @@
     </script>
 </head>
 <body>
-<a name="block"></a>
 <div class="box">
     <div id="box"></div>
-    <input type="button" value="下一页" id="btn">
 </div>
 </body>
 </html>
