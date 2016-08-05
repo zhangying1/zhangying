@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>The other shore to heaven</title>
+    <link href="css/base.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        header{
+            /*position:fixed;
+            left:0;
+            top:0;*/
+            width:16rem;
+            height:1.825rem;
+            background:#272526;
+            padding-top:0.4rem;
+        }
+        header div,header menu{
+            width:1.6rem;
+            height:1.4rem;
+        }
+        header div{
+            background:url("img_GuoKr/guokr_1.jpg");
+            background-size:contain;
+            margin-left:0.4rem;
+        }
+        header menu{
+            background:url("img_GuoKr/guokr_2.jpg");
+            background-size:contain;
+            margin-right:0.4rem;
+        }
+        header h3{
+            width:12rem;
+            height:100%;
+            text-align:center;
+            line-height:1.825rem;
+            color:#fff;
+            font-size:0.975rem;
+        }
+        section{
+            width:16rem;
+            /*
+            margin-top:1.825rem;
+            margin-bottom:3.75rem;*/
+        }
+        section .divider{
+            width:100%;
+            height:0.05rem;
+            background:#49caac;
+            border-top:1px solid #76b5aa;
+            border-bottom:1px solid #76b5aa;
+        }
+        section .top{
+            width:16rem;
+            height:9.9rem;
+        }
+        section .top .top_1{
+            width:100%;
+            height:1.85rem;
+            padding-top:0.25rem;
+            background:#fafafa;
+        }
+        .top .top_1 img{
+            width:1.825rem;
+            margin-right:0.05rem;
+            margin-left:1.45rem;
+        }
+        .top .top_1 a{
+            font-size:0.75rem;
+            color:#8a898f;
+            padding-top:0.425rem;
+        }
+        .top .top_1 .border{
+            padding-right:1.45rem;
+            padding-bottom:0.325rem;
+            border-right:1px solid #e0e0e0;
+        }
+        .top ul .img{
+            width:16rem;
+            height:7.8rem;
+            background:url("img_GuoKr/guokr_5.jpg");
+            background-size:cover;
+        }
+        .content1{
+            width:16rem;
+            height:14.275rem;
+        }
+        .content1 li{
+            width:15.2rem;
+            margin-left:0.4rem;
+            margin-right:0.4rem;
+            height:2.03928572rem;
+            border-bottom:2px solid #ebebeb;
+            line-height:1.78rem;
+            box-sizing: border-box;
+        }
+        .content1 li a{
+            font-size:0.75rem;
+            margin-left:0.35rem;
+        }
+        .content2 .divider img{
+            width:16rem;
+            height:0.15rem;
+        }
+        .content2 .top{
+            width:16rem;
+            height:1.975rem;
+            border-bottom:2px solid #e2e2e2;
+            box-sizing: border-box;
+            background:#fafafa;
+        }
+        .content2 .top h2{
+            margin-top:0.625rem;
+            margin-left:0.75rem;
+            font-size:0.75rem;
+            font-weight:bold;
+        }
+        .content2 .top img{
+            width:1.5rem;
+            margin-top:0.15rem;
+            margin-right:1.475rem;
+        }
+        .content2 .middle,.content2 .middle3{
+            width:16rem;
+            height:2.05rem;
+            border-bottom:2px solid #eaeaea;
+            box-sizing: border-box;
+        }
+        .content2 .middle a,.content2 .middle3 a{
+            font-size:0.75rem;
+            line-height:2rem;
+            padding:0.50rem 0.85rem;
+            box-sizing: border-box;
+        }
+        .content2 .middle a.active{
+            border-bottom:4px solid #d73356;
+        }
+        .content2 .middle2.active{
+            display:block;
+        }
+        .content2 .middle2,.content2 .middle4{
+            width:15.3rem;
+            height:5.9rem;
+            margin-left:0.7rem;
+            padding-top:0.6rem;
+            display:none;
+        }
+        .content2 .middle3 a.active{
+             border-bottom:4px solid #d73356;
+        }
+        .content2 .middle4.active{
+            display:block;
+        }
+        .content2 .middle2 h2,.content2 .middle4 h2{
+            font-size:0.75rem;
+            font-weight:bold;
+        }
+        .content2 .middle2 img,.content2 .middle4 img{
+            width:5.2rem;
+        }
+        .content2 .middle2 span,.content2 .middle4 span{
+            color:#9f9f9f;
+            width:9rem;
+            font-size:0.65rem;
+            line-height:1.2rem;
+            margin-left:0.65rem;
+        }
+        .content2  .bottom span{
+            display:block;
+            width:15.2rem;
+            margin-left:0.4rem;
+            margin-right:0.4rem;
+            height:2.03928572rem;
+            border-bottom:2px solid #ebebeb;
+            line-height:1.78rem;
+            box-sizing: border-box;
+        }
+        .content2 .bottom a{
+            font-size:0.75rem;
+            margin-left:0.35rem;
+        }
+        .last{
+            width:16rem;
+            height:3rem;
+            background:#fafafa;
+            border-bottom:3px solid #32a1ff;
+        }
+        .last .con{
+            width:5rem;
+            height:1.55rem;
+            margin:0.85rem auto 0;
+        }
+        .last .con img{
+            width:1.5rem;
+            margin-right:0.5rem;
+        }
+        .last .con span{
+            color:#a5a5a5;
+            font-size:0.75rem;
+            line-height:1.5rem;
+        }
+        footer{
+            /*position:fixed;
+            left:0;
+            bottom:0;*/
+            width:14rem;
+            height:2rem;
+            padding:0.85rem 0 0.9rem 2rem;
+            background:#262626;
+        }
+        footer div{
+            height:1.75rem;
+            padding-top:0.25rem;
+
+        }
+        footer img{
+            width:1.5rem;
+        }
+        footer a{
+            color:#bababa;
+            font-size:0.75rem;
+            line-height:1.4rem;
+        }
+        footer .first{
+            width:5rem;
+            border-right:2px solid #666666;
+            box-sizing: border-box;
+        }
+        footer .first a{
+            margin-left:0.6rem;
+        }
+        footer .lastr{
+            width:5rem;
+            margin-left:2rem;
+            background:#262626;
+        }
+    </style>
+    <script>
+        !(function (win, doc) {
+            function change() {
+                doc.documentElement.style.fontSize = 20 * doc.documentElement.clientWidth / 320 + 'px';
+            }
+
+            change();
+
+            win.addEventListener('resize', change, false);
+        })(window, document);
+        window.onload = function(){
+            var aA = document.querySelectorAll('.content2 .middle a');
+            var aLi = document.querySelectorAll('.content2 .middle2');
+            var aA2 = document.querySelectorAll('.content2 .middle3 a');
+            var aLi2 = document.querySelectorAll('.content2 .middle4');
+            perform(aA,aLi);
+            perform(aA2,aLi2);
+            function perform(obj,obj2){
+                for(var i = 0; i < obj.length; i++){
+                    obj[i].dataset.index = i;
+                    obj[i].onclick=function(){
+                        for(var j = 0; j < obj.length; j++){
+                            obj[j].classList.remove('active');
+                            obj2[j].classList.remove('active');
+                        }
+                        this.classList.add('active');
+                        obj2[this.dataset.index].classList.add('active');
+                    }
+                }
+            };
+        };
+    </script>
+</head>
+<body>
+<div class="box">
+    <header class="clearfix">
+        <div class="fl"></div>
+        <h3 class="fl">GuoKr.com</h3>
+        <menu class="fl"></menu>
+    </header>
+    <section>
+        <div class="divider"></div>
+        <div class="top">
+            <ul class="top_1 clearfix">
+                <li class="fl clearfix"><img src="img_GuoKr/guokr_3.jpg" class="fl"><a href="javascript:;" class="fl border">用户登录</a></li>
+                <li class="fl clearfix"><img src="img_GuoKr/guokr_4.jpg" class="fl"><a href="javascript:;" class="fl">用户注册</a></li>
+            </ul>
+            <ul>
+                <li class="img"></li>
+            </ul>
+        </div>
+        <ul class = "content1">
+            <li><a href="javascript:;">解读科学观点时,你应该知道的20个...</a></li>
+            <li><a href="javascript:;">运动出点汗,更好来谈判</a></li>
+            <li><a href="javascript:;">"关掉就习惯,本性不再难移"</a></li>
+            <li><a href="javascript:;">男女搭配,破案不累</a></li>
+            <li><a href="javascript:;">腰窝,性感无误?</a></li>
+            <li><a href="javascript:;">有7000多种语言,就有7000多个"平行...</a></li>
+            <li style="border:none;"><a href="javascript:;">久坐杀精--今天,你坐多久了</a></li>
+        </ul>
+            <ul class="content2">
+            <li class="divider"><img src="img_GuoKr/guokr_6.jpg"></li>
+            <li class="top clearfix"><h2 class="fl">热门问答</h2><img src="img_GuoKr/guokr_7.jpg" class="fr"></li>
+            <li class="middle">
+                <a href="javascript:;" class="active">科技</a>
+                <a href="javascript:;">生活</a>
+                <a href="javascript:;">人文</a>
+                <a href="javascript:;">自然</a>
+            </li>
+            <li class="middle2 active">
+                <h2>如果把探测器撞到彗星上会怎么样?</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_8.jpg" class="fl">
+                    <span class="fl">装上去的事情人类已经干过<br>了。。深度撞击号(英语: <br>Deep lmpact)是美国国家</span>
+                </div>
+            </li>
+            <li class="middle2">
+                <h2>史密森尼国家自然博物馆: 古脊椎动...</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_9.jpg" class="fl">
+                    <span class="fl">好久没逛果壳了,偶然发现<br>了Baboon老师关于NMNH(英语: <br>的帖子。因为去过多次,看...</span>
+                </div>
+            </li>
+            <li class="middle2">
+                <h2>如果把探测器撞到彗星上会怎么样?</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_8.jpg" class="fl">
+                    <span class="fl">装上去的事情人类已经干过<br>了。。深度撞击号(英语: <br>Deep lmpact)是美国国家</span>
+                </div>
+            </li>
+            <li class="middle2">
+               <h2>史密森尼国家自然博物馆: 古脊椎动...</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_9.jpg" class="fl">
+                    <span class="fl">好久没逛果壳了,偶然发现<br>了Baboon老师关于NMNH(英语: <br>的帖子。因为去过多次,看...</span>
+                </div>
+            </li>
+            <li class="bottom">
+                <span style="border-top:2px solid #e9e9e9; box-sizing: border-box;"><a href="javascript:;">这个"肥皂放入牛奶"的效果是怎么产...</a></span>
+                <span><a href="javascript:;">制造出大于全画幅的感光无原件有意义吗...</a></span>
+                <span><a href="javascript:;">磁场是运动的电厂吗?</a></span>
+                <span><a href="javascript:;">什么函数能描述你的人生?</a></span>
+            </li>
+        </ul>
+
+        <ul class="content2">
+            <li class="divider"><img src="img_GuoKr/guokr_6.jpg"></li>
+            <li class="top clearfix"><h2 class="fl">小组热帖</h2><img src="img_GuoKr/guokr_7.jpg" class="fr"></li>
+            <li class="middle3">
+                <a href="javascript:;" class="active">科技</a>
+                <a href="javascript:;">生活</a>
+                <a href="javascript:;">人文</a>
+                <a href="javascript:;">娱乐</a>
+            </li>
+            <li class="middle4 active">
+                <h2>史密森尼国家自然博物馆: 古脊椎动...</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_9.jpg" class="fl">
+                    <span class="fl">好久没逛果壳了,偶然发现<br>了Baboon老师关于NMNH(英语: <br>的帖子。因为去过多次,看...</span>
+                </div>
+            </li>
+            <li class="middle4">
+                <h2>如果把探测器撞到彗星上会怎么样?</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_8.jpg" class="fl">
+                    <span class="fl">装上去的事情人类已经干过<br>了。。深度撞击号(英语: <br>Deep lmpact)是美国国家</span>
+                </div>
+            </li>
+            <li class="middle4">
+                 <h2>史密森尼国家自然博物馆: 古脊椎动...</h2>
+                 <div class="clearfix">
+                     <img src="img_GuoKr/guokr_9.jpg" class="fl">
+                     <span class="fl">好久没逛果壳了,偶然发现<br>了Baboon老师关于NMNH(英语: <br>的帖子。因为去过多次,看...</span>
+                </div>
+            </li>
+            <li class="middle4">
+                <h2>如果把探测器撞到彗星上会怎么样?</h2>
+                <div class="clearfix">
+                    <img src="img_GuoKr/guokr_8.jpg" class="fl">
+                    <span class="fl">装上去的事情人类已经干过<br>了。。深度撞击号(英语: <br>Deep lmpact)是美国国家</span>
+                </div>
+            </li>
+            <li class="bottom">
+                <span style="border-top:2px solid #e9e9e9; box-sizing: border-box;"><a href="javascript:;">#TIL有的母螳螂会用美色诱杀其#...</a></span>
+                <span><a href="javascript:;">艾森彗星T-18小时: 绝地反击!</a></span>
+                <span><a href="javascript:;">[ISON]我儿,老大哥在看着你</a></span>
+                <span><a href="javascript:;">【天文每日一图】&nbsp;NGC&nbsp;1999: ...</a></span>
+            </li>
+        </ul>
+        <ul class="last">
+            <li class="con">
+                <img src="img_GuoKr/guokr_10.jpg"><span>回到顶部</span>
+            </li>
+        </ul>
+    </section>
+    <footer class="clearfix">
+        <div class="first fl">
+            <img src="img_GuoKr/guokr_11.jpg">
+            <a href="javascript:;">PC版</a>
+        </div>
+        <div class="fl lastr">
+            <img src="img_GuoKr/guokr_12.jpg">
+            <a href="javascript:;">移动应用</a>
+        </div>
+    </footer>
+</div>
+</body>
+</html>

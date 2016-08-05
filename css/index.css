@@ -96,10 +96,13 @@ body{
     width:340px; height:220px; position:absolute; right:72px; top:645px;
 }
 .middle ul li a{
-   width:80px; height:40px; position:absolute; left:50%; top:50%; margin-left:-40px; margin-top:-30px; font-size:40px; color:#fff; z-index:999;
+   width:300px; height:40px; position:absolute; left:50%; top:0; margin-left:-150px; margin-top:70px; font-size:40px; color:#fff; z-index:999;
+}
+.middle .opa_1 a{
+    margin-left:-125px;
 }
 .middle .opa_3 a{
-    width:120px; margin-left:-60px;
+     margin-left:-110px;
 }
 .middle ul li span{
     position:absolute; background:url("../img/000.jpg");
