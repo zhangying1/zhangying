@@ -1,1 +1,70 @@
-hello world
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>http://yezhibian.com</title>
+    <link href="css/base.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet"/>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.easing.js"></script>
+    <script src="js/addEvent.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        $(function(){
+            !(function(){
+                var left = $('.navi .inform .left_arrow');
+                var right = $('.navi .inform .right_arrow');
+
+                $('.navi .inform').mouseout(function() {
+                        left.stop().animate({"left": "-102"},{easing: 'easeOutBack'});
+                        right.stop().animate({"left": "17"},{easing: 'easeOutBack'});
+                });
+            })();
+        });
+    </script>
+</head>
+<body>
+<div class="navi" id="navi">
+    <div class="opa"></div>
+    <ul>
+        <li class="logo"></li>
+        <!--图片时钟-->
+        <li class="time time_1"><img src="img/0.png"/></li>
+        <li class="time time_2"><img src="img/0.png"/></li>
+        <li class="time time_3"><img src="img/sign.png"/></li>
+        <li class="time time_4"><img src="img/0.png"/></li>
+        <li class="time time_5"><img src="img/0.png"/></li>
+        <li class="time time_6"><img src="img/sign.png"/></li>
+        <li class="time time_7"><img src="img/0.png"/></li>
+        <li class="time time_8"><img src="img/0.png"/></li>
+        <li class="time time_9"><img src="img/week.png"/></li>
+        <li class="time time_10"><img src="img/one.png"/></li>
+
+    </ul>
+    <ul class="inform clearfix">
+        <li class="fr last"><a href="about.html" target="_blank">关于我</a></li>
+        <li class="fr"><a href="skills.html" target="_blank">技能</a></li>
+        <li class="fr"><a href="works.html" target="_blank">作品</a></li>
+        <li class="fr"><a href="index.html" name="test0">首页</a></li>
+
+        <li class="left_arrow"><img src="img/left.png" /></li>
+        <li class="right_arrow"><img src="img/right.png"/></li>
+    </ul>
+</div>
+<div class="middle">
+    <ul>
+        <li class="con"></li>
+        <li class=content>
+            <h1>张淦</h1>
+            <p>web前端工程师</p>
+        </li>
+        <li class="opa_1"><a href="works.html" target="_blank">作品</a></li>
+        <li class="opa_2"><a href="skills.html" target="_blank">技能</a></li>
+        <li class="opa_3"><a href="about.html" target="_blank">关于我</a></li>
+    </ul>
+</div>
+<div class="bottom">
+    <img src="img/last.png" class="last">
+</div>
+</body>
+</html>
