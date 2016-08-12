@@ -10,7 +10,6 @@ $(function() {
         }
         ;
     });
-
     //图片时钟
     var aImg = $('.navi ul .time img');
 

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>zhangying</title>
+    <link href="css/base.css" rel="stylesheet"/>
+    <link href="css/0.css" rel="stylesheet" id="link"/>
+    <link href="css/JHS.css" rel="stylesheet"/>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        body{
+            width:100%;
+        }
+    </style>
+    <script>
+        function rnd(n,m){
+            return parseInt(Math.random()*(m-n) + n);
+        };
+        function getPos(obj){
+            var l = 0;
+            var t = 0;
+            while(obj){
+                 l += obj.offsetLeft;
+                 t += obj.offsetTop;
+                obj = obj.offsetParent;
+            }
+            return {left: l, top: t}
+        };
+        document.addEventListener('DOMContentLoaded', function () {
+            //爆炸
+            !(function(){
+                var oPane = document.querySelector('#pane');
+                var aSpan = oPane.getElementsByTagName('span');
+                var aImg = oPane.getElementsByTagName('img');
+                var oLink = document.getElementById('link');
+                function tab(){
+                    for(var j = 0; j < aSpan.length; j++){
+                        aImg[j].style.display = 'none';
+                        aSpan[j].className = 'fl';
+                    }
+                };
+
+                for(var i = 0; i < aSpan.length; i++){
+                    aSpan[i].index = i;
+                    aSpan[i].onmouseover = function(){
+                        tab();
+                        iNow = this.index;
+                        aImg[this.index].style.display = 'block';
+                        this.className = 'fl active';
+                        oLink.href = 'css/'+this.index+'.css';
+                    }
+                }
+                var timer;
+                var iNow = 0;
+
+                function clock(){
+                    iNow++;
+                    if(iNow >= aSpan.length){
+                        iNow = 0;
+                    };
+                    tab();
+                    aImg[iNow].style.display = 'block';
+                    aSpan[iNow].className = 'fl active';
+                    oLink.href = 'css/'+iNow+'.css';
+                }
+                clearInterval(timer);
+                timer = setInterval(clock,2000);
+
+                oPane.onmouseover = function(){
+                    clearInterval(timer);
+                };
+                oPane.onmouseout = function(){
+                    clearInterval(timer);
+                    timer = setInterval(clock,2000);
+                };
+            })();
+            //`吸顶条
+            !(function(){
+                var oCei = document.querySelector('.Ceiling');
+                var oCei2 = document.querySelector('.Ceiling2');
+                var top = getPos(oCei).top;
+
+                window.onscroll = function(){
+                    var scrollTop=document.documentElement.scrollTop || document.body.scrollTop;
+
+                    if(scrollTop >= top){
+                        oCei.style.position = 'fixed';
+                        oCei.style.left = 0;
+                        oCei.style.top = 0;
+                        oCei2.style.display = 'block';
+                    }else{
+                        oCei.style.position = '';
+                        oCei2.style.display = 'none';
+                    };
+                };
+            })();
+            !(function(){
+                var oUser = document.querySelector('.Ending .user');
+                var oEm = document.querySelector('.Ending .user em');
+                var oUser2 = document.querySelector('.Ending .userbox');
+
+                oUser.onmouseover = oUser2.onmouseover = function(){
+                    oEm.style.transition = '.4s all ease';
+                    oUser2.style.transition = '.4s all ease';
+                    oEm.style.transform = 'rotate(360deg)';
+                    oUser2.style.height = 98 +'px';
+                };
+                oUser.onmouseout = oUser2.onmouseout = function(){
+                    oEm.style.transition = '.4s all ease';
+                    oEm.style.transform = 'rotate(180deg)';
+                    oUser2.style.height = 0;
+                };
+            })();
+            !(function(){
+                var oClose = document.querySelector('.Ending .opa .close');
+                var oOpa = document.querySelector('.Ending .opa');
+
+                oClose.onclick = function(){
+                    oOpa.style.display = 'none';
+                };
+            })();
+        }, false);
+    </script>
+</head>
+<body>
+<div class="tit clearfix">
+    <ul class="tit-left fl clearfix">
+        <li class="fl first"><a href="javascript:;">手机聚划算</a></li>
+        <li class="fl"><a href="javascript:;">登录</a></li>
+        <li class="fl"><a href="javascript:;">免费注册</a></li>
+    </ul>
+    <ul class="tit-right fr clearfix">
+        <li class="fr"><a href="javascript:;">帮助</a></li>
+        <li class="fr"><a href="javascript:;">商户中心</a></li>
+        <li class="fr clearfix tb">
+            <a href="javascript:;">我的淘宝</a><i></i>
+            <div class="gw">
+                <span style="display:block">已买到的宝贝</span>
+                <span style="display:block">收藏夹</span>
+                <span style="display:block">淘宝网</span>
+                <span style="display:block">天猫</span>
+            </div>
+            <div class="line"></div>
+        </li>
+        <li class="fr"><a href="javascript:;">购物车</a></li>
+        <li class="fr"><a href="javascript:;">我的聚划算</a></li>
+    </ul>
+</div>
+    <div class="box">
+        <div class="nav clearfix">
+        <div class="logo fl"><img src="img_JHS/logo.gif"></div>
+        <ul class="fr clearfix">
+            <li class="fr"><a href="javascript:;">俪人购</a></li>
+            <li class="fr"><a href="javascript:;">旅游团</a></li>
+            <li class="fr"><a href="javascript:;">量贩团</a></li>
+            <li class="fr"><a href="javascript:;">全球精选</a></li>
+            <li class="fr"><a href="javascript:;">聚名品</a></li>
+            <li class="fr"><a href="javascript:;">非常大牌</a></li>
+            <li class="fr"><a href="javascript:;">品牌团</a></li>
+            <li class="fr active"><a href="javascript:;" class="active">首页</a></li>
+        </ul>
+    </div>
+    </div>
+    <div class="theme clearfix" id="back">
+        <div class="box2">
+            <ul class="left fl">
+            <li><a href="javascript:;"><img src="img_JHS/cd.jpg"></a></li>
+            <li class="content clearfix">
+                <div class="fl">
+                    <a href="javascript:;" style="display:block">女装</a>
+                    <a href="javascript:;" style="display:block">鞋包</a>
+                    <a href="javascript:;" style="display:block">饰品</a>
+                    <a href="javascript:;" style="display:block">美妆</a>
+                    <a href="javascript:;" style="display:block">食品</a>
+                    <a href="javascript:;" style="display:block">百货</a>
+                    <a href="javascript:;" style="display:block">家电</a>
+                    <a href="javascript:;" style="display:block">家装</a>
+                </div>
+                <div class="fr">
+                    <a href="javascript:;" style="display:block">男装</a>
+                    <a href="javascript:;" style="display:block">内衣</a>
+                    <a href="javascript:;" style="display:block">运动</a>
+                    <a href="javascript:;" style="display:block">童装</a>
+                    <a href="javascript:;" style="display:block">母婴</a>
+                    <a href="javascript:;" style="display:block">汽车</a>
+                    <a href="javascript:;" style="display:block">数码</a>
+                    <a href="javascript:;" style="display:block">家纺</a>
+                </div>
+            </li>
+            <li class="trailer"><a href="javascript:;">明日预告</a></li>
+            <li class="last">
+                <a href="javascript:;" style="display:block"><i class="fl" style="background-position:-23px 0"></i>全场包邮</a>
+                <a href="javascript:;" style="display:block"><i class="fl" style="background-position:-42px 0"></i>七天无理由退换货</a>
+                <a href="javascript:;" style="display:block"><i class="fl" style="background-position:-61px 0"></i>30天低价</a>
+            </li>
+        </ul>
+            <ul class="left_2 fl"></ul>
+            <ul class="middle fl">
+            <li class="shuffling" id="pane">
+                <img src="img_JHS/shuffling0.jpg" style="display:block"/>
+                <img src="img_JHS/shuffling1.jpg" />
+                <img src="img_JHS/shuffling2.jpg" />
+                <img src="img_JHS/shuffling3.jpg" />
+                <span style="position:absolute; bottom:10px; right:104px" class="active">1</span>
+                <span style="position:absolute; bottom:10px; right:75px;">2</span>
+                <span style="position:absolute; bottom:10px; right:46px;">3</span>
+                <span style="position:absolute; bottom:10px; right:17px;">4</span>
+            </li>
+            <li class="figure"></li>
+        </ul>
+            <ul class="right fl">
+            <li><img src="img_JHS/ri.jpg"></li>
+        </ul>
+        </div>
+    </div>
+<div class="div1">
+    <div class="p1 clearfix">
+        <h2 class="fl">品牌团</h2>
+        <ul class="fr clearfix">
+            <li class="fr" style="padding:5px 10px; margin-left:10px; background:#e61414;"><a href="javascript:;" style="color:#fff;">全部品牌团</a></li>
+            <li class="fr"><a href="javascript:;">食品百货</a></li>
+            <li class="fr"><a href="javascript:;">家装车品</a></li>
+            <li class="fr"><a href="javascript:;">数码家电</a></li>
+            <li class="fr"><a href="javascript:;">美容护肤</a></li>
+            <li class="fr"><a href="javascript:;">母婴童装</a></li>
+            <li class="fr"><a href="javascript:;">内衣配饰</a></li>
+            <li class="fr"><a href="javascript:;">鞋包运动</a></li>
+            <li class="fr"><a href="javascript:;">精品男士</a></li>
+            <li class="fr"><a href="javascript:;">女装饰品</a></li>
+        </ul>
+    </div>
+    <div class="p2 clearfix">
+        <img src="img_JHS/ppt.jpg"  class="fl"/>
+        <img src="img_JHS/ppt2.jpg" class="fl" style="margin:0 4px;"/>
+        <img src="img_JHS/ppt3.jpg" class="fl"/>
+    </div>
+    <ul class="p3">
+        <li class="clearfix">
+            <a href="javascript:;" class="fl"><img src="img_JHS/p1.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p2.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p3.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p4.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p5.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p6.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p7.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p8.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p9.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p10.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p11.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p12.jpg"/></a>
+            <a href="javascript:;" class="fl last"><img src="img_JHS/p13.jpg"/></a>
+        </li>
+        <li class="clearfix">
+            <a href="javascript:;" class="fl"><img src="img_JHS/p14.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p15.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p16.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p17.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p18.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p19.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p20.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p21.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p22.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p23.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p24.jpg"/></a>
+            <a href="javascript:;" class="fl"><img src="img_JHS/p25.jpg"/></a>
+            <a href="javascript:;" class="fl last"><img src="img_JHS/p26.jpg"/></a>
+        </li><li class="clearfix" style="border:none;">
+        <a href="javascript:;" class="fl"><img src="img_JHS/p27.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p28.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p29.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p30.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p31.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p32.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p33.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p34.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p35.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p36.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p37.jpg"/></a>
+        <a href="javascript:;" class="fl"><img src="img_JHS/p38.jpg"/></a>
+        <a href="javascript:;" class="fl last"><img src="img_JHS/p39.jpg"/></a>
+    </li>
+    </ul>
+</div>
+<div class="Ceiling">
+    <div class="top clearfix">
+        <h2 class="fl">今日团</h2>
+        <ul class="fl clearfix">
+            <li class="fl"><a href="javasrcipt:;">女装</a></li>
+            <li class="fl"><a href="javasrcipt:;">男装</a></li>
+            <li class="fl"><a href="javasrcipt:;">鞋包</a></li>
+            <li class="fl"><a href="javasrcipt:;">内衣</a></li>
+            <li class="fl"><a href="javasrcipt:;">饰品</a></li>
+            <li class="fl"><a href="javasrcipt:;">运动</a></li>
+            <li class="fl"><a href="javasrcipt:;">美妆</a></li>
+            <li class="fl"><a href="javasrcipt:;">童装</a></li>
+            <li class="fl"><a href="javasrcipt:;">食品</a></li>
+            <li class="fl"><a href="javasrcipt:;">母婴</a></li>
+            <li class="fl"><a href="javasrcipt:;">百货</a></li>
+            <li class="fl"><a href="javasrcipt:;">汽车</a></li>
+            <li class="fl"><a href="javasrcipt:;">家电</a></li>
+            <li class="fl"><a href="javasrcipt:;">数码</a></li>
+            <li class="fl"><a href="javasrcipt:;">家装</a></li>
+            <li class="fl"><a href="javasrcipt:;">家纺</a></li>
+            <li class="fl"><a href="javasrcipt:;" style="color:#26a96d;">[明日预告]</a></li>
+        </ul>
+    </div>
+    <ul class="bottom clearfix">
+        <li class="fl"><h6>10点上新</h6></li>
+        <li class="fr clearfix" style="margin-top:7px; padding:0; margin-right:80px;"><span class="fr" style="margin-left:1px;"></span><p class="fr"></p></li>
+        <li class="fr" style="margin-top:7px; padding-right:7px; position:relative; width:190px; height:27px;">
+            <i></i>
+            <input type="text" value='' placeholder=" 搜索聚划算商品">
+        </li>
+        <li class="fr"><a href="javascript:;">预告</a></li>
+        <li class="fr"><a href="javascript:;">昨日开团</a></li>
+        <li class="fr"><a href="javascript:;">今日新开团</a></li>
+        <li class="fr" style="padding-left:20px;"><a href="javascript:;">全部</a></li>
+        <li class="fr" style="border-right:1px solid #cdcdcd; padding:0 26px;"><a href="javascript:;">价格</a></li>
+        <li class="fr" style="padding-right:0;"><a href="javascript:;">销量</a></li>
+        <li class="fr"><a href="javascript:;" style="color:red;">默认</a></li>
+    </ul>
+</div>
+<div class="Ceiling2"></div>
+<div class="ture">
+    <div class="picture">
+        <ul class="clearfix">
+            <li class="fl li1">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture1.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li2">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture2.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li3" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture4.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture3.jpg"/>
+                <div class="clearfix d3">
+                    <h4>限量送钢化膜 买就送挂绳 买两件送指环</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;前8000名送钢化膜</span><span class="s6 fl"> 雅艾 苹果6手机壳新款</span>
+                    </p>
+                </div>
+                <div class="d4"></div>
+            </li>
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture5.jpg"/>
+                <div class="clearfix d3">
+                    <h4>黑胶加厚&nbsp;厂家品牌直销&nbsp;15天退换无忧</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;送运费险购物无忧</span><span class="s6 fl">&nbsp;两把领劵减5元,清新素雅不褪色</span>
+                    </p>
+                </div>
+                <div class="d5"></div>
+            </li>
+            <li class="fl" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture6.jpg"/>
+                <div class="clearfix d3">
+                    <h4>精选面料&nbsp;品牌工艺&nbsp;可爱设计</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;每条只需4.5元</span><span class="s6 fl">质量保证&nbsp;洁丽雅</span>
+                    </p>
+                </div>
+                <div class="d6"></div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl li1">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture1.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li2">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture2.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li3" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture4.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture3.jpg"/>
+                <div class="clearfix d3">
+                    <h4>限量送钢化膜 买就送挂绳 买两件送指环</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;前8000名送钢化膜</span><span class="s6 fl"> 雅艾 苹果6手机壳新款</span>
+                    </p>
+                </div>
+                <div class="d4"></div>
+            </li>
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture5.jpg"/>
+                <div class="clearfix d3">
+                    <h4>黑胶加厚&nbsp;厂家品牌直销&nbsp;15天退换无忧</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;送运费险购物无忧</span><span class="s6 fl">&nbsp;两把领劵减5元,清新素雅不褪色</span>
+                    </p>
+                </div>
+                <div class="d5"></div>
+            </li>
+            <li class="fl" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture6.jpg"/>
+                <div class="clearfix d3">
+                    <h4>精选面料&nbsp;品牌工艺&nbsp;可爱设计</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;每条只需4.5元</span><span class="s6 fl">质量保证&nbsp;洁丽雅</span>
+                    </p>
+                </div>
+                <div class="d6"></div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl li1">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture1.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li2">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture2.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li3" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture4.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture3.jpg"/>
+                <div class="clearfix d3">
+                    <h4>限量送钢化膜 买就送挂绳 买两件送指环</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;前8000名送钢化膜</span><span class="s6 fl"> 雅艾 苹果6手机壳新款</span>
+                    </p>
+                </div>
+                <div class="d4"></div>
+            </li>
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture5.jpg"/>
+                <div class="clearfix d3">
+                    <h4>黑胶加厚&nbsp;厂家品牌直销&nbsp;15天退换无忧</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;送运费险购物无忧</span><span class="s6 fl">&nbsp;两把领劵减5元,清新素雅不褪色</span>
+                    </p>
+                </div>
+                <div class="d5"></div>
+            </li>
+            <li class="fl" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture6.jpg"/>
+                <div class="clearfix d3">
+                    <h4>精选面料&nbsp;品牌工艺&nbsp;可爱设计</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;每条只需4.5元</span><span class="s6 fl">质量保证&nbsp;洁丽雅</span>
+                    </p>
+                </div>
+                <div class="d6"></div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl li1">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture1.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li2">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture2.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+            <li class="fl li3" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture4.jpg"/>
+                <div class="clearfix d1">
+                    <i class="fl i1"></i><em class="fr"><h2>马上抢</h2><span class="s1">狂欢只剩最后一天</span></em>
+                </div>
+                <div class="clearfix d2">
+                    <i class="fl i2"></i>
+                    <span class="s2 fl">仅剩8小时</span><span class="fr s4">件已付款</span><span class="s3 fr">19243</span>
+                </div>
+            </li>
+        </ul>
+        <ul class="clearfix">
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture3.jpg"/>
+                <div class="clearfix d3">
+                    <h4>限量送钢化膜 买就送挂绳 买两件送指环</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;前8000名送钢化膜</span><span class="s6 fl"> 雅艾 苹果6手机壳新款</span>
+                    </p>
+                </div>
+                <div class="d4"></div>
+            </li>
+            <li class="fl">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture5.jpg"/>
+                <div class="clearfix d3">
+                    <h4>黑胶加厚&nbsp;厂家品牌直销&nbsp;15天退换无忧</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;送运费险购物无忧</span><span class="s6 fl">&nbsp;两把领劵减5元,清新素雅不褪色</span>
+                    </p>
+                </div>
+                <div class="d5"></div>
+            </li>
+            <li class="fl" style="margin-right:0;">
+                <a href="javascript:;"></a>
+                <img src="img_JHS/picture6.jpg"/>
+                <div class="clearfix d3">
+                    <h4>精选面料&nbsp;品牌工艺&nbsp;可爱设计</h4>
+                    <p><i class="fl i3"></i>
+                        <span class="s5 fl">&nbsp;每条只需4.5元</span><span class="s6 fl">质量保证&nbsp;洁丽雅</span>
+                    </p>
+                </div>
+                <div class="d6"></div>
+            </li>
+        </ul>
+        <div class="last clearfix">
+            <a href="javascript:;" class="fl" style="width:60px;"><i class="last_i"></i></a>
+            <a href="javascript:;" class="fl">1</a>
+            <a href="javascript:;" class="fl">2</a>
+            <a href="javascript:;" class="fl">...</a>
+            <a href="javascript:;" class="fl">15</a>
+            <a href="javascript:;" class="fl" style="width:95px; color:#fff; background:#e61414;
+            position:relative;"><i class="last_l"></i>下一页</a>
+        </div>
+    </div>
+</div>
+<div class="Ending">
+    <ul class="Ending_top clearfix">
+        <li class="fl l1"></li>
+        <li class="fl">
+            <h4>关于聚划算</h4>
+            <a href="javascript:;">帮助中心</a>
+            <a href="javascript:;">诚聘英才</a>
+            <a href="javascript:;">法律声明</a>
+        </li>
+        <li class="fl">
+            <h4>买家中心</h4>
+            <a href="javascript:;">在线答疑</a>
+            <a href="javascript:;">服务保障</a>
+        </li>
+        <li class="fl">
+            <h4>卖家中心</h4>
+            <a href="javascript:;">在线咨询</a>
+            <a href="javascript:;">商品报名</a>
+            <a href="javascript:;">商家规则</a>
+            <a href="javascript:;">规则通知</a>
+        </li>
+        <li class="fl">
+            <h4>有话要说</h4>
+            <a href="javascript:;">客服热线</a>
+            <a href="javascript:;">廉正举报</a>
+            <a href="javascript:;">我要投诉</a>
+        </li>
+        <li class="fl">
+            <h4>服务保障</h4>
+            <a href="javascript:;" style=" padding-bottom:30px">全场包邮</a>
+            <a href="javascript:;" style="width:100px; position:absolute; left:100px; top:84px;">七天无理由退换货</a>
+            <a href="javascript:;">39天低价</a>
+        </li>
+        <li class="fl l2">
+            <h4>手机登录&nbsp;:</h4>
+            <a href="javascript:;" class="a1"></a>
+            <a href="javascript:;" class="a2"></a>
+        </li>
+    </ul>
+    <ul class="end clearfix">
+        <li class="e1 fl"></li>
+        <li class="e2 fl">
+            <div class="end_box">
+                <a href="javascript:;" style="padding-left:0;">淘宝网</a>
+                <a href="javascript:;">天猫</a>
+                <a href="javascript:;">聚划算</a>
+                <a href="javascript:;">全球速卖通</a>
+                <a href="javascript:;">阿里巴巴国际交易市场</a>
+                <a href="javascript:;">1688</a>
+                <a href="javascript:;">阿里妈妈</a>
+                <a href="javascript:;">阿里云计算</a>
+                <a href="javascript:;">YunOS</a>
+                <a href="javascript:;">阿里旅行</a>
+                <a href="javascript:;">UC</a>
+                <a href="javascript:;">高德地图</a>
+                <a href="javascript:;">阿里通信</a>
+                <a href="javascript:;">钉钉</a>
+                <a href="javascript:;" style="border-right:none;">友盟</a>
+                <a href="javascript:;" style="padding-left:0;">虾米</a>
+                <a href="javascript:;">阿里星球</a>
+                <a href="javascript:;">一淘</a>
+                <a href="javascript:;">点点虫</a>
+                <a href="javascript:;">一达通</a>
+                <a href="javascript:;">蚂蚁金服</a>
+                <a href="javascript:;">支付宝</a>
+                <a href="javascript:;">网上银行</a>
+                <a href="javascript:;">口碑</a>
+                <a href="javascript:;">阿里健康</a>
+                <a href="javascript:;" style="border-right:none;">天下网商</a>
+            </div>
+            <div class="end_box2">增值电信业务经营许可证：B2-20110446</div>
+            <div class="end_box3">© 2010-2016 JU.TAOBAO.COM 版权所有 互联网违法和不良信息举报中心：0517-81683775 blxx@list.alibaba-inc.com</div>
+        </li>
+    </ul>
+    <div class="scroll">
+        <a href="javascript:;" class="s1"></a>
+        <a href="javascript:;" class="s2"><img src="img_JHS/scroll.png"/></a>
+        <a href="javascript:;" class="s3"></a>
+    </div>
+    <div class="user clearfix">
+        <div class="fl user_1"><i></i></div>
+        <p class="fl">我的聚收藏&nbsp;<span>0</span>件</p>
+        <em class="fr"></em>
+    </div>
+    <div class="userbox">
+        <div class="con clearfix">
+            <span class="fl span1">您还未登陆</span>
+            <span class="fl span2">登录</span>
+        </div>
+        <div class="user_box"></div>
+    </div>
+    <div class="opa clearfix">
+        <div class="opacity fl"></div>
+        <img src="img_JHS/logo.png" class="img1 fl"/>
+        <div class="fl text">
+            <p>前往聚划算<span style="font-size:15px;">APP</span></p>
+            <h2 style="font-size:20px;"><i style="color:#fdfd00; font-size:20px;">1分钱</i>强新人专属好货,数量有限,先到先得&nbsp;!</h2>
+        </div>
+        <i class="close fr">×</i>
+        <img src="img_JHS/opa.png" class="img2 fr"/>
+    </div>
+</div>
+</body>
+</html>
